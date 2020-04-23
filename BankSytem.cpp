@@ -12,7 +12,7 @@ struct bankAccount
 	
 };
 //-------------------------------------------------------------------------------------------
-//prototypes
+//declare prototypes
 
 void intro();
 void createNew();
@@ -30,7 +30,12 @@ int main()
 	bankAccount account;
 	do
 	{	
-		//Option Menu loop until choice is not equal to number 4 ("EXIT")
+		/*Option Menu loop until choice is not equal to number 4 ("EXIT")
+		*1 is for new account
+		*2 is for existing account
+		*3 is to display records
+		* 4 is for exit
+		*/
 
 		system("cls");
 		cout<<"\n\n\n\t-------------------MAIN MENU-------------------";
@@ -41,9 +46,10 @@ int main()
 		cout<<"\n\n\n\t-----------------------------------------------";
 		cout<<"\n\n\tSelect Option (1-4):\t ";
 		cin>>ch;
+		//clear screen after a choice had been entered
 		system("cls");
 		
-		
+		// switch choices until 4 is not the equal to choice
 		switch(ch)
 		{
 			case '1':
@@ -73,7 +79,7 @@ int main()
 	system ("pause");
 	return 0;
 }
-
+// Introduction display when the program had been loaded
 void intro()
 {
 	cout <<"\n\n\t\t\tW E L C O M E 	T O	  C A R L O N B A N K";	
@@ -87,8 +93,8 @@ void createNew()
   //creates a appends a new entry 
 
 	bankAccount account;
-
 	ofstream outFile;
+	//opens a binary file named "bankfile.dat", and append the new created entry after  the last existing bank account entry 
 	outFile.open("bankfile.dat",ios::binary|ios::app);
 	
 	do
